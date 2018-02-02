@@ -42,7 +42,7 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
     }
 
     fun proceed() {
-
+        mListener.onVerified()
     }
 
     companion object {
