@@ -3,5 +3,7 @@
     <string name="verificationCode">Verification</string>
     <string name="verificationToken">VerificationToken</string>
     <string name="app_name">KIDOLE</string>
-
+    <string name="first_name">Imie</string>
+    <string name="second_name">Nazwisko</string>
+    <string name="password">Haslo</string>
 </resources>
