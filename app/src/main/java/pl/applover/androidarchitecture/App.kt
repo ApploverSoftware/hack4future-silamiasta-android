@@ -2,6 +2,8 @@ package pl.applover.androidarchitecture
 
 import android.app.Activity
 import android.app.Application
+import com.google.firebase.FirebaseApp
+import com.google.firebase.database.FirebaseDatabase
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasDispatchingActivityInjector
 import pl.applover.androidarchitecture.dependency_injection.application.components.DaggerAppComponent
@@ -22,7 +24,7 @@ class App : Application(), HasDispatchingActivityInjector {
     override fun onCreate() {
         super.onCreate()
         instance = this
-
+        FirebaseApp.initializeApp(this)
         DaggerAppComponent
                 .builder()
                 .application(this)
