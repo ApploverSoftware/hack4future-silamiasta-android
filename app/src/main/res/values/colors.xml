@@ -7,4 +7,6 @@
     <color name="white_50">#8fff</color>
     <color name="deep_lilac">#8972c1</color>
     <color name="deep_lilac_50">#808972c1</color>
+    <color name="red">#ff4081</color>
+    <color name="blue">#3d5afe</color>
 </resources>
