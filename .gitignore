@@ -36,7 +36,6 @@ output.json
 obj/
 
 .idea/*
-.gitignore
 .gradle/4.1/fileChanges/
 .gradle/4.1/fileContent/
 .gradle/buildOutputCleanup/
