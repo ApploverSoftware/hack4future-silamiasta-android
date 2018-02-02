@@ -1,7 +1,6 @@
 package pl.applover.androidarchitecture.dependency_injection.application.factories
 
 
-
 import android.support.v4.app.Fragment
 import dagger.Binds
 import dagger.Module
@@ -17,6 +16,8 @@ import pl.applover.androidarchitecture.views_presenters.start.second_fragment.Se
 import pl.applover.androidarchitecture.views_presenters.start.second_fragment.SecondFragmentSubComponent
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragment
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragmentSubComponent
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragment
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragmentSubComponent
 
 
 /**
@@ -26,9 +27,13 @@ import pl.applover.androidarchitecture.views_presenters.start.start_fragment.Sta
 //TODO        register your fragments' subcomponents here
         StartFragmentSubComponent::class,
         ExampleDialogFragmentSubComponent::class,
+<<<<<<< HEAD
         SecondFragmentSubComponent::class,
         CodeVerificationFragmentSubComponent::class
 
+=======
+        LoginFragmentSubComponent::class
+>>>>>>> origin/feeature-login-register-screen
 ))
 abstract class FragmentsInjectorFactories {
 
@@ -48,6 +53,7 @@ abstract class FragmentsInjectorFactories {
 
     @Binds
     @IntoMap
+<<<<<<< HEAD
     @FragmentKey(SecondFragment::class)
     internal abstract fun bindSecondFragmentInjectorFactory(builder: SecondFragmentSubComponent.Builder):
             AndroidInjector.Factory<out Fragment>
@@ -56,5 +62,9 @@ abstract class FragmentsInjectorFactories {
     @IntoMap
     @FragmentKey(CodeVerificationFragment::class)
     internal abstract fun bindCodeVerificationFragmentInjectorFactory(builder: CodeVerificationFragmentSubComponent.Builder):
+=======
+    @FragmentKey(LoginFragment::class)
+    internal abstract fun bindLoginFragmentInjectorFactory(builder: LoginFragmentSubComponent.Builder):
+>>>>>>> origin/feeature-login-register-screen
             AndroidInjector.Factory<out Fragment>
 }

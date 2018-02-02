@@ -33,4 +33,9 @@ output.json
 
 #NDK
 obj/
+<<<<<<< HEAD
 .externalNativeBuild
+=======
+.externalNativeBuild
+/.idea/workspace.xml
+>>>>>>> origin/feeature-login-register-screen
