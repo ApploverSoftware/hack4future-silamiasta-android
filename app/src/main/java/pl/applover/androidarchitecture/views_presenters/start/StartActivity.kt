@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import com.stfalcon.mvphelper.MvpActivity
 import pl.applover.androidarchitecture.R
 import pl.applover.androidarchitecture.util.extensions.showFragment
+import pl.applover.androidarchitecture.views_presenters.start.second_fragment.SecondFragment
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragment
 
 
@@ -19,6 +20,11 @@ class StartActivity : MvpActivity<StartActivityContract.Presenter, StartActivity
     @SuppressLint("MissingSuperCall")
     override fun onStart() {
         super.onStart()
+        onSplashEnded()
+    }
+
+    fun onSplashEnded() {
+        showFragment(LoginFragment.newInstance(), R.id.main_frame_layout)
     }
 
     override fun onLoggedIn() {
@@ -26,7 +32,7 @@ class StartActivity : MvpActivity<StartActivityContract.Presenter, StartActivity
     }
 
     override fun onRegisterClicked() {
-        //todo
+        showFragment(SecondFragment.newInstance(), R.id.main_frame_layout)
     }
 
     fun mShowFragment(fragment: Fragment, tag: String) {
