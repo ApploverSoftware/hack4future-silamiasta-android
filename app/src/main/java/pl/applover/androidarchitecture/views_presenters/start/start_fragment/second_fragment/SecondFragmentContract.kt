@@ -1,4 +1,4 @@
-package pl.applover.androidarchitecture.views_presenters.start.second_fragment
+package pl.applover.androidarchitecture.views_presenters.start.start_fragment.second_fragment
 
 import com.stfalcon.mvphelper.IPresenter
 

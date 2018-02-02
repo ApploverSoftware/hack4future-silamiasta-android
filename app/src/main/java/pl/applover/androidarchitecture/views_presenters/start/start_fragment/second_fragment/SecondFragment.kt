@@ -1,4 +1,4 @@
-package pl.applover.androidarchitecture.views_presenters.start.second_fragment
+package pl.applover.androidarchitecture.views_presenters.start.start_fragment.second_fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_second.*
 import pl.applover.androidarchitecture.util.extensions.showToast
 import pl.applover.androidarchitecture.views_presenters.start.StartActivity
-import pl.applover.androidarchitecture.views_presenters.start.codeVerification.CodeVerificationFragment
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification.CodeVerificationFragment
 import java.util.concurrent.TimeUnit
 
 /**

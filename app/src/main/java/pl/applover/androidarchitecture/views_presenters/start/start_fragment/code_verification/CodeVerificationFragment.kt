@@ -1,11 +1,11 @@
-package pl.applover.androidarchitecture.views_presenters.start.codeVerification
+package pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification
 
+import android.content.Context
 import android.os.Bundle
 import com.google.firebase.auth.PhoneAuthProvider
-import pl.applover.androidarchitecture.R
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_code_verification.*
-import pl.applover.androidarchitecture.R.id.phone_code_input
+import pl.applover.androidarchitecture.R
 import pl.applover.androidarchitecture.util.extensions.getString
 import pl.applover.androidarchitecture.util.extensions.showToast
 
@@ -15,16 +15,33 @@ import pl.applover.androidarchitecture.util.extensions.showToast
 class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.Presenter, CodeVerificationFragmentContract.View>(),
         CodeVerificationFragmentContract.View {
 
+    private lateinit var mListener: FragmentInteraction
 
 
-    fun validateCode(){
+    override fun onResume() {
+        super.onResume()
+        phone_btn_verify.setOnClickListener {
+            validateCode()
+        }
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is FragmentInteraction) {
+            mListener = context
+        } else {
+            throw RuntimeException(context!!.toString() + " must implement ${FragmentInteraction::class.java.name}")
+        }
+    }
+
+    fun validateCode() {
         if (verificationCode == phone_code_input.text.toString())
             proceed()
         else
             showToast("Nieprawidłowy kod")
     }
 
-    fun proceed(){
+    fun proceed() {
 
     }
 
@@ -33,11 +50,15 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
         var token: PhoneAuthProvider.ForceResendingToken? = null
 
         fun newInstance(bundle: Bundle): CodeVerificationFragment {
-           verificationCode = bundle.getString(getString(R.string.verificationCode))
+            verificationCode = bundle.getString(getString(R.string.verificationCode))
             token = bundle.getParcelable(getString(R.string.verificationToken))
             return CodeVerificationFragment()
         }
     }
 
     override fun getLayoutResId(): Int = R.layout.fragment_code_verification
+
+    interface FragmentInteraction {
+        fun onVerified()
+    }
 }

@@ -1,4 +1,4 @@
-package pl.applover.androidarchitecture.views_presenters.start.codeVerification
+package pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification
 
 import com.stfalcon.mvphelper.IPresenter
 

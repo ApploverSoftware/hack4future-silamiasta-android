@@ -1,4 +1,4 @@
-package pl.applover.androidarchitecture.views_presenters.start.codeVerification
+package pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification
 
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
