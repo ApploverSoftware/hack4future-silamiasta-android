@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.nihaskalam.android:progress-button-1.0.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/progress-button-1.0.1.aar/89c84498acd0c3c24f95d309a4ee7a9f/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/progress-button-1.0.1.aar/89c84498acd0c3c24f95d309a4ee7a9f/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/progress-button-1.0.1.aar/f1bfff3d690c05068862b3987933dd6b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/progress-button-1.0.1.aar/f1bfff3d690c05068862b3987933dd6b/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
