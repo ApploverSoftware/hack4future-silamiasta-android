@@ -1,3 +1,4 @@
+# Created by .ignore support plugin (hsz.mobi)
 #built application files
 *.apk
 *.ap_
@@ -33,9 +34,3 @@ output.json
 
 #NDK
 obj/
-<<<<<<< HEAD
-.externalNativeBuild
-=======
-.externalNativeBuild
-/.idea/workspace.xml
->>>>>>> origin/feeature-login-register-screen

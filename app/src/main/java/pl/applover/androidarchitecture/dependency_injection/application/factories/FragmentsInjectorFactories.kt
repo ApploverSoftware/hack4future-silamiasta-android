@@ -27,14 +27,10 @@ import pl.applover.androidarchitecture.views_presenters.start.start_fragment.log
 //TODO        register your fragments' subcomponents here
         StartFragmentSubComponent::class,
         ExampleDialogFragmentSubComponent::class,
-<<<<<<< HEAD
-        SecondFragmentSubComponent::class,
-        CodeVerificationFragmentSubComponent::class
 
-=======
-        LoginFragmentSubComponent::class
->>>>>>> origin/feeature-login-register-screen
-))
+        SecondFragmentSubComponent::class,
+        CodeVerificationFragmentSubComponent::class,
+        LoginFragmentSubComponent::class))
 abstract class FragmentsInjectorFactories {
 
     //TODO bind your fragments' injection factories here
@@ -53,7 +49,6 @@ abstract class FragmentsInjectorFactories {
 
     @Binds
     @IntoMap
-<<<<<<< HEAD
     @FragmentKey(SecondFragment::class)
     internal abstract fun bindSecondFragmentInjectorFactory(builder: SecondFragmentSubComponent.Builder):
             AndroidInjector.Factory<out Fragment>
@@ -62,9 +57,11 @@ abstract class FragmentsInjectorFactories {
     @IntoMap
     @FragmentKey(CodeVerificationFragment::class)
     internal abstract fun bindCodeVerificationFragmentInjectorFactory(builder: CodeVerificationFragmentSubComponent.Builder):
-=======
+            AndroidInjector.Factory<out Fragment>
+
+    @Binds
+    @IntoMap
     @FragmentKey(LoginFragment::class)
     internal abstract fun bindLoginFragmentInjectorFactory(builder: LoginFragmentSubComponent.Builder):
->>>>>>> origin/feeature-login-register-screen
             AndroidInjector.Factory<out Fragment>
 }
