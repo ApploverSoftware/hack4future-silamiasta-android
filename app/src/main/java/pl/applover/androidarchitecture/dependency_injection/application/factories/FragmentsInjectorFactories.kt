@@ -13,6 +13,8 @@ import pl.applover.androidarchitecture.views_presenters.example.main.dialog_frag
 import pl.applover.androidarchitecture.views_presenters.example.main.dialog_fragment.ExampleDialogFragmentSubComponent
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragment
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragmentSubComponent
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragment
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragmentSubComponent
 
 
 /**
@@ -38,5 +40,11 @@ abstract class FragmentsInjectorFactories {
     @IntoMap
     @FragmentKey(ExampleDialogFragment::class)
     internal abstract fun bindExampleDialogFragmentInjectorFactory(builder: ExampleDialogFragmentSubComponent.Builder):
+            AndroidInjector.Factory<out Fragment>
+
+    @Binds
+    @IntoMap
+    @FragmentKey(LoginFragment::class)
+    internal abstract fun bindLoginFragmentInjectorFactory(builder: LoginFragmentSubComponent.Builder):
             AndroidInjector.Factory<out Fragment>
 }
