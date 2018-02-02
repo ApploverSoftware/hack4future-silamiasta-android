@@ -6,7 +6,7 @@ import dagger.android.AndroidInjector
 /**
  * Created by Janusz Hain on 2018-02-02.
  */
-@Subcomponent(modules = arrayOf(LoginFragmentModule::class, LoginFragmentSubComponent::class))
+@Subcomponent(modules = arrayOf(LoginFragmentModule::class))
 interface LoginFragmentSubComponent : AndroidInjector<LoginFragment> {
 
     @Subcomponent.Builder

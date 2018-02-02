@@ -1,7 +1,6 @@
 package pl.applover.androidarchitecture.dependency_injection.application.factories
 
 
-
 import android.support.v4.app.Fragment
 import dagger.Binds
 import dagger.Module
@@ -23,8 +22,8 @@ import pl.applover.androidarchitecture.views_presenters.start.start_fragment.log
 @Module(subcomponents = arrayOf(
 //TODO        register your fragments' subcomponents here
         StartFragmentSubComponent::class,
-        ExampleDialogFragmentSubComponent::class
-
+        ExampleDialogFragmentSubComponent::class,
+        LoginFragmentSubComponent::class
 ))
 abstract class FragmentsInjectorFactories {
 

@@ -20,4 +20,8 @@ class LoginFragmentPresenter @Inject constructor()
     override fun onDestroy() {
         super.onDestroy()
     }
+
+    override fun logIn(number: String, pin: String) {
+
+    }
 }

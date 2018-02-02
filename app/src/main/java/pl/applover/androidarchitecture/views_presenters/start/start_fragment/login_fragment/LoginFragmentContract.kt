@@ -8,10 +8,11 @@ import com.stfalcon.mvphelper.IPresenter
 interface LoginFragmentContract {
 
     interface View {
-
+        fun onLoginSuccess()
+        fun onLoginFailure()
     }
 
     interface Presenter : IPresenter<View> {
-
+        fun logIn(number: String, pin: String)
     }
 }
