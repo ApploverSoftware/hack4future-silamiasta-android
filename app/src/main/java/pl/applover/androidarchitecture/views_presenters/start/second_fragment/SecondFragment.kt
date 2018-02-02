@@ -2,6 +2,7 @@ package pl.applover.androidarchitecture.views_presenters.start.second_fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -24,14 +25,18 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
     @SuppressLint("MissingSuperCall")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initialSetup()
     }
 
     fun initialSetup() {
-        phone_btn_send.setOnClickListener { verifyPhoneNumber() }
-
         mCallbackManager = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(p0: PhoneAuthCredential?) {
+                showToast(p0?.smsCode.toString())
                 registeredSuccessfully()
             }
 
@@ -40,10 +45,13 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
             }
 
             override fun onCodeSent(verificationId: String?, token: PhoneAuthProvider.ForceResendingToken?) {
+                showToast("ELO")
                 proceedToCodeCheck(verificationId, token)
             }
 
         }
+
+        phone_btn_send.setOnClickListener { verifyPhoneNumber() }
     }
 
     companion object {

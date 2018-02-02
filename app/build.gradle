@@ -7,7 +7,7 @@ apply plugin: "kotlin-android-extensions"
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "pl.applover.silamiasta"
+        applicationId "pl.applover.androidarchitecture"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -30,6 +30,7 @@ android {
 
 apply plugin: "kotlin-kapt"
 apply plugin: "io.mironov.smuggler"
+
 
 dependencies {
     def daggerVersion = "2.10"
@@ -82,4 +83,8 @@ dependencies {
     implementation 'com.nihaskalam.android:progress-button:1.0.1'
     //FIREBASE
     compile 'com.google.firebase:firebase-auth:11.8.0'
+    compile 'com.google.firebase:firebase-database:11.8.0'
+    compile 'com.google.firebase:firebase-core:11.8.0'
+
 }
+apply plugin: 'com.google.gms.google-services'
