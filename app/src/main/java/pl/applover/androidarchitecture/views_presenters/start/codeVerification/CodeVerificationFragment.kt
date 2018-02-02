@@ -5,6 +5,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import pl.applover.androidarchitecture.R
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_code_verification.*
+import pl.applover.androidarchitecture.R.id.phone_code_input
 import pl.applover.androidarchitecture.util.extensions.getString
 import pl.applover.androidarchitecture.util.extensions.showToast
 
