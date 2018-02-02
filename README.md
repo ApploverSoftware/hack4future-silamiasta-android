@@ -1,7 +1,3 @@
-NOT BEING UPGRADED!!!!
-The newest version is on github!
-https://github.com/ApploverSoftware/android_architecture
-
 MVP architecture for Kotlin project with Dependency Injection and Interactors
 
 Plugin for generating MVP: 
@@ -18,7 +14,7 @@ When generatring Fragment using MVP Generator:
 1. From class FragmentNameSubComponent cut Fragment.class and paste it in array of subcomponents in FragmentsInjectorFactories
 2. From class FragmentNameSubComponent cut code for binding and paste it to the class FragmentsInjectorFactories
 
-NOTE that presenter is being injected after onCreate (Activity), so use for example onStart to work with presenter
+NOTE that presenter is being injected after onCreate (Activity) or onCreateView (Fragment), so use for example onStart (Activity) or onResume (Fragment) to work with presenter
 
 To create DialogFragment using MVP, create Fragment (as above) and change name of extended class to MvpDialogFragment or MvpFullscreenDialogFragment
 
@@ -32,3 +28,5 @@ Usable tools:
 
 Rename package name!
 Example: https://stackoverflow.com/questions/16804093/android-studio-rename-package
+
+Right click on package, refactor and then rename. Manifest will change, but it is needed to change "application id" in gradle

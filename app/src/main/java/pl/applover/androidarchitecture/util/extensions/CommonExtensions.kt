@@ -8,7 +8,9 @@ import android.os.Handler
 import android.os.Looper
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.widget.Toast
 import pl.applover.androidarchitecture.App
 import java.util.concurrent.TimeUnit
@@ -26,6 +28,8 @@ fun showToast(text: String, isLong: Boolean = true, context: Context = App.insta
 }
 
 fun getString(resId: Int, context: Context = App.instance) = context.getString(resId)
+
+fun getColor(resId: Int, context: Context = App.instance) = ContextCompat.getColor(context, resId)
 
 fun TimeUnit.delayed(delay: Long, closure: () -> Unit) {
     Handler(Looper.getMainLooper()).postDelayed(closure, this.toMillis(delay))
@@ -47,14 +51,23 @@ fun <T> Activity.goToActivity(className: Class<T>, bundle: Bundle? = null, saveA
     startActivity(intent)
 }
 
-fun AppCompatActivity.showFragment(fragment: Fragment, into: Int, push: Boolean = true, animIn: Int? = null, animOut: Int? = null, tag: String? = null) {
-    supportFragmentManager.beginTransaction()
-            .addToBackStack(tag)
-            .setCustomAnimations(
-                    animIn ?: 0,
-                    animOut ?: 0)
-            .replace(into, fragment)
-            .commit()
+fun AppCompatActivity.showFragment(fragment: Fragment, into: Int, push: Boolean = true, animIn: Int? = android.R.anim.fade_in, animOut: Int? = android.R.anim.fade_out, tag: String? = null) {
+    if (push) {
+        supportFragmentManager.beginTransaction()
+                .addToBackStack(tag)
+                .setCustomAnimations(
+                        animIn ?: 0,
+                        animOut ?: 0)
+                .replace(into, fragment)
+                .commit()
+    } else {
+        supportFragmentManager.beginTransaction()
+                .setCustomAnimations(
+                        animIn ?: 0,
+                        animOut ?: 0)
+                .replace(into, fragment)
+                .commit()
+    }
 }
 
 fun <T : Fragment> FragmentManager.onStackTop(closure: T.() -> Unit, onFailure: (() -> Unit)? = null) {
@@ -74,4 +87,8 @@ fun FragmentManager.clearBackstack() {
         popBackStack(entry.id, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         executePendingTransactions()
     }
+}
+
+fun isEmailValid(target: CharSequence): Boolean {
+    return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
 }

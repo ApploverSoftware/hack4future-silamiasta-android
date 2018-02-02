@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301908115055",
+    "firebase_url": "https://kidole-13593.firebaseio.com",
+    "project_id": "kidole-13593",
+    "storage_bucket": "kidole-13593.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301908115055:android:b03725f71d17125b",
+        "android_client_info": {
+          "package_name": "pl.applover.androidarchitecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301908115055-nknhvhf3n90gsq1m9lku8f1f0knkos02.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.applover.androidarchitecture",
+            "certificate_hash": "0e21833abe1140e41a8a761094e29fcc47f4d735"
+          }
+        },
+        {
+          "client_id": "301908115055-1ko9l7mtk2pfgeoqp0cq3abuvtn8d1b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOsf6LlPphewNzyUNykre67nUSzKUT4NE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301908115055-1ko9l7mtk2pfgeoqp0cq3abuvtn8d1b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android Architecture</string>
+    <string name="verificationCode">Verification</string>
+    <string name="verificationToken">VerificationToken</string>
 </resources>
