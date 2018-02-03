@@ -1,16 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@drawable/background"
+    android:paddingTop="20dp"
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:src="@drawable/logo"
-        />
+        android:src="@drawable/logo" />
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -19,8 +20,7 @@
         android:layout_gravity="center"
         android:layout_margin="3dp"
         android:background="@drawable/edit_text_start_shape"
-        android:hint="USERNAME"
-         />
+        android:hint="USERNAME" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -43,7 +43,7 @@
         app:pb_cornerRadius="14dp"
         app:pb_isIndeterminate="true"
         app:pb_selectorError="@android:color/holo_red_dark"
-        app:pb_selectorIdle="@drawable/progress_bar_red"
+        app:pb_selectorIdle="@drawable/progress_bar_green"
         app:pb_textIdle="LOGIN" />
 
     <com.nihaskalam.progressbuttonlibrary.CircularProgressButton
@@ -57,7 +57,7 @@
         app:pb_cornerRadius="14dp"
         app:pb_isIndeterminate="true"
         app:pb_selectorError="@android:color/holo_red_dark"
-        app:pb_selectorIdle="@drawable/progress_bar_blue"
+        app:pb_selectorIdle="@drawable/progress_bar_black"
         app:pb_textIdle="Register" />
 
     <com.nihaskalam.progressbuttonlibrary.CircularProgressButton
@@ -72,6 +72,6 @@
         app:pb_isIndeterminate="true"
         app:pb_selectorError="@android:color/holo_red_dark"
         app:pb_selectorIdle="@drawable/progress_bar_white"
-        app:pb_textIdle="Check another user" />
+        app:pb_textIdle="VERIFY KIDOLE" />
 
 </LinearLayout>
