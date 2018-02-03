@@ -1,6 +1,7 @@
 package pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment
 
 import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import pl.applover.androidarchitecture.R
@@ -69,6 +70,10 @@ class LoginFragment : MvpFragment<LoginFragmentContract.Presenter, LoginFragment
         buttonLogIn.stop(true)
         buttonLogIn.isClickable = true
         mListener.onLoggedIn()
+        if (view != null) {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view!!.getWindowToken(), 0)
+        }
     }
 
     override fun onLoginFailure() {

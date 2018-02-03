@@ -22,6 +22,6 @@ class LoginFragmentPresenter @Inject constructor()
     }
 
     override fun logIn(number: String, pin: String) {
-
+        view?.onLoginSuccess()
     }
 }
