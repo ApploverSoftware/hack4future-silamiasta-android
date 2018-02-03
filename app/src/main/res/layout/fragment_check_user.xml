@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="3dp"
+        android:inputType="text"
         android:maxLines="1"
         android:layout_centerInParent="true"
         android:background="@drawable/edit_text_start_shape"

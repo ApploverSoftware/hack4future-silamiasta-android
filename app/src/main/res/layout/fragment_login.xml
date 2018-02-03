@@ -21,6 +21,8 @@
         android:layout_margin="3dp"
         android:background="@drawable/edit_text_start_shape"
         android:hint="Username"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         android:maxLines="1" />
 
     <EditText
