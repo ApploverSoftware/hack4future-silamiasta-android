@@ -19,8 +19,8 @@
         android:layout_gravity="center"
         android:layout_margin="3dp"
         android:background="@drawable/edit_text_start_shape"
-        android:hint="NUMBER"
-        android:inputType="number" />
+        android:hint="USERNAME"
+         />
 
     <EditText
         android:id="@+id/editTextPassword"
