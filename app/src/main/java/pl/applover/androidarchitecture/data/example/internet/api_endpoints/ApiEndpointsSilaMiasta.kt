@@ -4,6 +4,7 @@ import io.reactivex.Single
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsCreateFacebookAsset
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsLogin
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsSingUp
+import pl.applover.androidarchitecture.data.example.internet.response.ResponseCheckUser
 import pl.applover.androidarchitecture.data.example.internet.response.ResponseLogIn
 import pl.applover.androidarchitecture.models.user.LoggedUserData
 import retrofit2.Response
@@ -35,7 +36,7 @@ interface ApiEndpointsSilaMiasta {
             @Path("id") id: Int,
             @Header("Content-Type") contentType: String = "application/json",
             @Header("Accept") accept: String = "application/json"
-    ): Single<Response<Void>>
+    ): Single<Response<ResponseCheckUser>>
 
     @GET("/api/v1/assets")
     fun createFacebookAsset(
