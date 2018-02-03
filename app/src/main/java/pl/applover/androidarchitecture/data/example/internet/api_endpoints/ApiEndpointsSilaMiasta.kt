@@ -4,6 +4,8 @@ import io.reactivex.Single
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsCreateFacebookAsset
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsLogin
 import pl.applover.androidarchitecture.data.example.internet.params.ParamsSingUp
+import pl.applover.androidarchitecture.data.example.internet.response.ResponseLogIn
+import pl.applover.androidarchitecture.models.user.LoggedUserData
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -17,7 +19,7 @@ interface ApiEndpointsSilaMiasta {
             @Body jsonBody: ParamsLogin.ParamsBody,
             @Header("Content-Type") contentType: String = "application/json",
             @Header("Accept") accept: String = "application/json"
-    ): Single<Response<Void>>
+    ): Single<Response<ResponseLogIn>>
 
     @POST("/api/v1/users")
     fun singUp(
@@ -30,7 +32,7 @@ interface ApiEndpointsSilaMiasta {
 
     @GET("/api/v1/users/{id}")
     fun getUser(
-            @Path("id") id: String,
+            @Path("id") id: Int,
             @Header("Content-Type") contentType: String = "application/json",
             @Header("Accept") accept: String = "application/json"
     ): Single<Response<Void>>
@@ -38,9 +40,9 @@ interface ApiEndpointsSilaMiasta {
     @GET("/api/v1/assets")
     fun createFacebookAsset(
             @Body jsonBody: ParamsCreateFacebookAsset.ParamsBody,
-            @Header("Authorization") auth: String = "application/json",
-            @Header("Device") device: String = "application/json",
-            @Header("Username") username: String = "application/json",
+            @Header("Authorization") auth: String = "Token token=" + LoggedUserData.token!!,
+            @Header("Device") device: String = LoggedUserData.device!!,
+            @Header("Username") username: String = LoggedUserData.userName!!,
             @Header("Content-Type") contentType: String = "application/json",
             @Header("Accept") accept: String = "application/json"
     ): Single<Response<Void>>
