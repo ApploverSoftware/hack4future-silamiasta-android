@@ -1,12 +1,13 @@
 package pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import com.google.firebase.auth.PhoneAuthProvider
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_code_verification.*
 import pl.applover.androidarchitecture.R
-import pl.applover.androidarchitecture.util.extensions.getString
+import pl.applover.androidarchitecture.data.example.internet.params.ParamsSingUp
 import pl.applover.androidarchitecture.util.extensions.showToast
 
 /**
@@ -15,11 +16,35 @@ import pl.applover.androidarchitecture.util.extensions.showToast
 class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.Presenter, CodeVerificationFragmentContract.View>(),
         CodeVerificationFragmentContract.View {
 
-    private lateinit var mListener: FragmentInteraction
 
+    private lateinit var mListener: FragmentInteraction
+    private var verificationCode: String? = null
+    private var token: PhoneAuthProvider.ForceResendingToken? = null
+    private var firstName: String? = null
+    private var lastName: String? = null
+    private var password: String? = null
+    private var userName: String? = null
+    private var phoneNumber: String? = null
+
+    @SuppressLint("MissingSuperCall")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        verificationCode = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.verificationCode))
+        token = bundle?.getParcelable(pl.applover.androidarchitecture.util.extensions.getString(R.string.verificationToken))
+        firstName = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.first_name))
+        lastName = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.second_name))
+        password = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.password))
+        userName = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.KEY_USER_NAME))
+        phoneNumber = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.KEY_PHONE_NUMBER))
+
+    }
 
     override fun onResume() {
         super.onResume()
+        if (verificationCode == null) {
+            presenter?.register(ParamsSingUp(ParamsSingUp.ParamsBody(ParamsSingUp.User(password!!, password!!, userName!!, phoneNumber!!, firstName!!, lastName!!))))
+        }
         phone_btn_verify.setOnClickListener {
             validateCode()
         }
@@ -35,29 +60,26 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
     }
 
     fun validateCode() {
-        if (verificationCode == phone_code_input.text.toString())
-            proceed()
+        if (verificationCode == phone_code_input.text.toString() || verificationCode == null)
+            presenter?.register(ParamsSingUp(ParamsSingUp.ParamsBody(ParamsSingUp.User(password!!, password!!, userName!!, phoneNumber!!, firstName!!, lastName!!))))
         else
             showToast("Nieprawidłowy kod")
+    }
+
+    override fun onRegisterSuccess() {
+        proceed()
     }
 
     fun proceed() {
         mListener.onVerified()
     }
 
-    companion object {
-        var verificationCode: String? = null
-        var token: PhoneAuthProvider.ForceResendingToken? = null
-        var firstName: String? = null
-        var lastName: String? = null
-        var password: String? = null
+    override fun onRegisterFailed() {
+        showToast("Register failed, unknown reason, sorry!")
+    }
 
-        fun newInstance(bundle: Bundle): CodeVerificationFragment {
-            verificationCode = bundle.getString(getString(R.string.verificationCode))
-            token = bundle.getParcelable(getString(R.string.verificationToken))
-            firstName = bundle.getString(getString(R.string.first_name))
-            lastName = bundle.getString(getString(R.string.second_name))
-            password = bundle.getString(getString(R.string.password))
+    companion object {
+        fun newInstance(): CodeVerificationFragment {
             return CodeVerificationFragment()
         }
     }
