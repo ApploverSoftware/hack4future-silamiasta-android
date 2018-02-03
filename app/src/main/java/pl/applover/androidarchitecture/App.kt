@@ -3,7 +3,6 @@ package pl.applover.androidarchitecture
 import android.app.Activity
 import android.app.Application
 import com.google.firebase.FirebaseApp
-import com.google.firebase.database.FirebaseDatabase
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasDispatchingActivityInjector
 import pl.applover.androidarchitecture.dependency_injection.application.components.DaggerAppComponent
@@ -18,8 +17,13 @@ import javax.inject.Named
 class App : Application(), HasDispatchingActivityInjector {
 
     @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-    @Inject @field:Named("example")
+    @Inject
+    @field:Named("example")
     lateinit var exampleRetrofit: Retrofit
+
+    @Inject
+    @field:Named("main")
+    lateinit var mainRetrofit: Retrofit
 
     override fun onCreate() {
         super.onCreate()
@@ -40,5 +44,6 @@ class App : Application(), HasDispatchingActivityInjector {
         var instance: App by DelegatesExt.notNullSingleValue()
 
         fun getExampleRetrofit(): Retrofit = instance.exampleRetrofit
+        fun getMainRetrofit(): Retrofit = instance.mainRetrofit
     }
 }

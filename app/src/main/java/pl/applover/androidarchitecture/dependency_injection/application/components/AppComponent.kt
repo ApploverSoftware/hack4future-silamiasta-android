@@ -8,6 +8,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import pl.applover.androidarchitecture.dependency_injection.internet.example.ExampleNetModule
+import pl.applover.androidarchitecture.dependency_injection.internet.example.SilaMiastaNetModule
 import javax.inject.Singleton
 
 /**
@@ -19,6 +20,7 @@ import javax.inject.Singleton
         ActivitiesInjectorFactories::class,
         FragmentsInjectorFactories::class,
         ExampleNetModule::class,
+        SilaMiastaNetModule::class,
         AppModule::class
 ))
 interface AppComponent {
