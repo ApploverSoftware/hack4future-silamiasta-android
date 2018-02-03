@@ -26,6 +26,6 @@ class CodeVerificationFragmentPresenter @Inject constructor()
     }
 
     override fun register(paramsSignUp: ParamsSingUp) {
-        interactorSignUp.execute({}, { code: Int? -> }, paramsSignUp)
+        interactorSignUp.execute({view?.onRegisterSuccess()}, { code: Int? -> view?.onRegisterFailed()}, paramsSignUp)
     }
 }
