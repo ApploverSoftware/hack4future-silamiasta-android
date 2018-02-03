@@ -13,6 +13,6 @@ interface LoginFragmentContract {
     }
 
     interface Presenter : IPresenter<View> {
-        fun logIn(number: String, pin: String)
+        fun logIn(username: String, password: String)
     }
 }

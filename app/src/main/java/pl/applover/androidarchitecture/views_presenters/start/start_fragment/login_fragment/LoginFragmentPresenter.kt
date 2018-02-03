@@ -1,6 +1,10 @@
 package pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment
 
 import com.stfalcon.mvphelper.Presenter
+import pl.applover.androidarchitecture.data.example.internet.params.ParamsLogin
+import pl.applover.androidarchitecture.models.user.LoggedUserData
+import pl.applover.androidarchitecture.util.extensions.delayed
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
@@ -21,7 +25,9 @@ class LoginFragmentPresenter @Inject constructor()
         super.onDestroy()
     }
 
-    override fun logIn(number: String, pin: String) {
-
+    override fun logIn(username: String, password: String) {
+        LoggedUserData.logInUser(ParamsLogin(ParamsLogin.ParamsBody(password, username)),
+                { TimeUnit.SECONDS.delayed(2, { view?.onLoginSuccess() }) },
+                { view?.onLoginFailure() })
     }
 }
