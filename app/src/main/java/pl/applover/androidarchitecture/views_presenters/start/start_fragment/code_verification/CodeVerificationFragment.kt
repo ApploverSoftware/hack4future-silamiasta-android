@@ -48,10 +48,16 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
     companion object {
         var verificationCode: String? = null
         var token: PhoneAuthProvider.ForceResendingToken? = null
+        var firstName: String? = null
+        var lastName: String? = null
+        var password: String? = null
 
         fun newInstance(bundle: Bundle): CodeVerificationFragment {
             verificationCode = bundle.getString(getString(R.string.verificationCode))
             token = bundle.getParcelable(getString(R.string.verificationToken))
+            firstName = bundle.getString(getString(R.string.first_name))
+            lastName = bundle.getString(getString(R.string.second_name))
+            password = bundle.getString(getString(R.string.password))
             return CodeVerificationFragment()
         }
     }

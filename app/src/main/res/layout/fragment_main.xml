@@ -2,4 +2,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_marginTop="50dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/common_google_signin_btn_icon_dark"/>
+
+    <TextView
+        android:id="@+id/profile_id"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/profile_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="3AE997FU"/>
+
+    <TextView
+        android:id="@+id/profile_country"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_id"
+        android:layout_centerHorizontal="true"
+        android:text="POLAND"/>
+
+    <TextView
+        android:id="@+id/profile_transactions"
+        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_country"
+        android:layout_centerHorizontal="true"
+        android:text="33 TRANSACTIONS"/>
+
+    <TextView
+        android:id="@+id/profile_confirmations"
+        android:layout_marginTop="2dp"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_transactions"
+        android:layout_centerHorizontal="true"
+        android:text="17 NETWORK CONFIRMATIONS"/>
+
+    <TextView
+        android:id="@+id/profile_complains"
+        android:layout_marginTop="2dp"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_confirmations"
+        android:layout_centerHorizontal="true"
+        android:text="0 NETWORK COMPLAINS"/>
+
+    <Button
+        android:id="@+id/profile_phone_number"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/profile_complains"
+        android:layout_marginTop="80dp"
+        android:text="PHONE NUMBER VERIFICATION" />
+    <Button
+        android:layout_below="@+id/profile_phone_number"
+        android:id="@+id/profile_facebook"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="FACEBOOK VERIFIED"
+        />
+    <Button
+        android:layout_below="@+id/profile_facebook"
+        android:id="@+id/profile_idcard"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="ID VERIFIED"
+        />
+    <Button
+        android:layout_below="@+id/profile_idcard"
+        android:id="@+id/profile_linkedin"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="LINKEDIN VERIFIED"
+        />
+    <Button
+        android:layout_below="@+id/profile_linkedin"
+        android:id="@+id/profile_creditcard"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="CREDIT CARD VERIFICATION"
+        />
+
+    <Button
+        android:layout_below="@+id/profile_creditcard"
+        android:id="@+id/profile_bank"
+        style="@style/LoginOvalButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="BANK ACCOUNT VERIFICATION"
+
+        />
+
 </RelativeLayout>

@@ -4,9 +4,41 @@
     android:orientation="vertical"
     android:background="@color/deep_lilac">
 
+    <EditText
+        android:id="@+id/first_name"
+        style="@style/LoginEditText"
+        android:layout_marginTop="38dp"
+        android:hint="Imię"
+        android:imeOptions="actionDone"
+        android:theme="@style/LoginEditText" />
+
+    <EditText
+        android:id="@+id/last_name"
+        style="@style/LoginEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Nazwisko"
+        android:imeOptions="actionDone"
+        android:theme="@style/LoginEditText" />
+
+    <EditText
+        android:id="@+id/first_password"
+        style="@style/LoginEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Hasło"
+        android:imeOptions="actionDone"
+        android:theme="@style/LoginEditText" />
+
+    <EditText
+        android:id="@+id/second_password"
+        style="@style/LoginEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Powtórz hasło"
+        android:imeOptions="actionDone"
+        android:theme="@style/LoginEditText" />
+
     <com.hbb20.CountryCodePicker
         android:id="@+id/phone_country_picker"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:contentColor="@color/white_50"
@@ -21,7 +53,7 @@
     <EditText
         android:id="@+id/phone_input_number"
         style="@style/LoginEditText"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="Numer telefonu"
         android:imeOptions="actionDone"
         android:inputType="phone"
