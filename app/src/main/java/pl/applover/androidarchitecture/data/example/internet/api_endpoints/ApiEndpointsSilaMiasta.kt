@@ -31,9 +31,9 @@ interface ApiEndpointsSilaMiasta {
     ): Single<Response<Void>>
 
 
-    @GET("/api/v1/users/{id}")
+    @GET("/api/v1/users")
     fun getUser(
-            @Path("id") id: Int,
+            @Query("username") userName: String,
             @Header("Content-Type") contentType: String = "application/json",
             @Header("Accept") accept: String = "application/json"
     ): Single<Response<ResponseCheckUser>>
