@@ -32,6 +32,7 @@ class StartActivity : MvpActivity<StartActivityContract.Presenter, StartActivity
     }
 
     override fun onSplashEnded() {
+        if(!isFinishing || !isDestroyed)
         showFragment(LoginFragment.newInstance(), R.id.main_frame_layout)
     }
 
