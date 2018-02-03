@@ -47,6 +47,10 @@ class LoginFragment : MvpFragment<LoginFragmentContract.Presenter, LoginFragment
         buttonRegister.setOnClickListener {
             mListener.onRegisterClicked()
         }
+
+        buttonCheckUser.setOnClickListener {
+            mListener.onCheckUserClicked()
+        }
     }
 
     private fun checkInputsAndTryToLogin() {
@@ -80,5 +84,6 @@ class LoginFragment : MvpFragment<LoginFragmentContract.Presenter, LoginFragment
     interface FragmentInteraction {
         fun onLoggedIn()
         fun onRegisterClicked()
+        fun onCheckUserClicked()
     }
 }

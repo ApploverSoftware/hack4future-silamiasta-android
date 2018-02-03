@@ -11,6 +11,8 @@ import pl.applover.androidarchitecture.views_presenters.example.main.dialog_frag
 import pl.applover.androidarchitecture.views_presenters.example.main.dialog_fragment.ExampleDialogFragmentSubComponent
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragment
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.StartFragmentSubComponent
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.check_user_fragment.CheckUserFragment
+import pl.applover.androidarchitecture.views_presenters.start.start_fragment.check_user_fragment.CheckUserFragmentSubComponent
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification.CodeVerificationFragment
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification.CodeVerificationFragmentSubComponent
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragment
@@ -31,7 +33,8 @@ import pl.applover.androidarchitecture.views_presenters.start.start_fragment.sec
         SecondFragmentSubComponent::class,
         CodeVerificationFragmentSubComponent::class,
         LoginFragmentSubComponent::class,
-        MainFragmentSubComponent::class
+        MainFragmentSubComponent::class,
+        CheckUserFragmentSubComponent::class
 ))
 abstract class FragmentsInjectorFactories {
 
@@ -71,5 +74,11 @@ abstract class FragmentsInjectorFactories {
     @IntoMap
     @FragmentKey(MainFragment::class)
     internal abstract fun bindMainFragmentInjectorFactory(builder: MainFragmentSubComponent.Builder):
+            AndroidInjector.Factory<out Fragment>
+
+    @Binds
+    @IntoMap
+    @FragmentKey(CheckUserFragment::class)
+    internal abstract fun bindCheckUserFragmentInjectorFactory(builder: CheckUserFragmentSubComponent.Builder):
             AndroidInjector.Factory<out Fragment>
 }
