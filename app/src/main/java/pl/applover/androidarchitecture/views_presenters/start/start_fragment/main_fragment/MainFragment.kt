@@ -3,6 +3,10 @@ package pl.applover.androidarchitecture.views_presenters.start.start_fragment.ma
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.linkedin.platform.LISessionManager
+import com.linkedin.platform.errors.LIAuthError
+import com.linkedin.platform.listeners.AuthListener
+import com.linkedin.platform.utils.Scope
 import pl.applover.androidarchitecture.R
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -30,7 +34,16 @@ class MainFragment : MvpFragment<MainFragmentContract.Presenter, MainFragmentCon
     }
 
     fun linkedinAuthorization(){
+        LISessionManager.getInstance(context).init(activity, Scope.build(), object : AuthListener{
+            override fun onAuthSuccess() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
 
+            override fun onAuthError(error: LIAuthError?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        }, true)
     }
 
     companion object {
@@ -38,6 +51,8 @@ class MainFragment : MvpFragment<MainFragmentContract.Presenter, MainFragmentCon
             return MainFragment()
         }
     }
+
+
 
     override fun getLayoutResId(): Int = R.layout.fragment_main
 }
