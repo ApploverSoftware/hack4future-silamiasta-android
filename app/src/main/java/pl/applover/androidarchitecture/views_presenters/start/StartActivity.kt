@@ -26,10 +26,9 @@ class StartActivity : MvpActivity<StartActivityContract.Presenter, StartActivity
     override fun getLayoutResId(): Int = R.layout.activity_start
 
     @SuppressLint("MissingSuperCall")
-    override fun onStart() {
-        super.onStart()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         showFragment(StartFragment.newInstance(), R.id.main_frame_layout, false)
-
     }
 
     override fun onSplashEnded() {
