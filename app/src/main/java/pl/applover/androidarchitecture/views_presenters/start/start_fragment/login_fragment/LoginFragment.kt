@@ -37,6 +37,7 @@ class LoginFragment : MvpFragment<LoginFragmentContract.Presenter, LoginFragment
 
     override fun onResume() {
         super.onResume()
+        buttonLogIn.stop(true)
         setListeners()
     }
 
