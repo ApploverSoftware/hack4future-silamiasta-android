@@ -27,15 +27,22 @@ class MainFragment : MvpFragment<MainFragmentContract.Presenter, MainFragmentCon
         profile_phone_number.setTextColor(Color.parseColor("#ffffff"))
 
 
-        if (!LoggedUserData.user!!.facebookId.isNullOrEmpty()) {
+        if (LoggedUserData.user!!.responseUser.balances.facebook) {
             profile_facebook.setBackground(ContextCompat.getDrawable(App.instance, R.drawable.login_oval_button_green))
             profile_facebook.text = "FACEBOOK VERIFIED"
             profile_facebook.setTextColor(Color.parseColor("#ffffff"))
         }
 
         profile_id.setText(LoggedUserData.user!!.username)
-        // profile_confirmations.setText("APPROVALS: " + LoggedUserData.user.responseUser.)
-        // profile_complains.setText("COMPLAINS: " + checkUser.user.balances.disapproval)
+
+
+
+        profile_confirmations.setText("APPROVALS: " + LoggedUserData.user!!.responseUser.balances.approval)
+        profile_complains.setText("COMPLAINS: " + LoggedUserData.user!!.responseUser.balances.disapproval)
+
+        val votes = LoggedUserData.user!!.responseUser.balances.approval + LoggedUserData.user!!.responseUser.balances.disapproval
+
+        profile_transactions.text = "" + votes + " votes"
 
         initializeListeners()
     }

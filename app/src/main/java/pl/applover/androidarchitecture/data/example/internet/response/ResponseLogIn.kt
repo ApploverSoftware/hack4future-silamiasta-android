@@ -20,12 +20,24 @@ data class ResponseLogIn(
             @Json(name = "last_name") val lastName: String,
             @Json(name = "facebook_id") val facebookId: String?,
             @Json(name = "created_at") val createdAt: String,
-            @Json(name = "updated_at") val updatedAt: String
+            @Json(name = "updated_at") val updatedAt: String,
+            @Json(name = "balances") val balances: Balances
     )
 
     data class AuthToken(
             @Json(name = "token") val token: String,
             @Json(name = "device") val device: String
+    )
+
+
+    data class Balances(
+            @Json(name = "facebook") val facebook: Boolean,
+            @Json(name = "instagram") val instagram: Boolean,
+            @Json(name = "phone_number") val phoneNumber: Boolean,
+            @Json(name = "email") val email: Boolean,
+            @Json(name = "linked_in") val linkedIn: Boolean,
+            @Json(name = "approval") val approval: Int,
+            @Json(name = "disapproval") val disapproval: Int
     )
 }
 
