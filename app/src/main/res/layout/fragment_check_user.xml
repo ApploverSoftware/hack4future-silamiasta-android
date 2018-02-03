@@ -1,5 +1,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextUser"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/edit_text_start_shape"
+        android:hint="User id" />
+
+    <com.nihaskalam.progressbuttonlibrary.CircularProgressButton
+        android:id="@+id/buttonCheckUser"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        app:pb_cornerRadius="14dp"
+        app:pb_isIndeterminate="true"
+        android:layout_below="@+id/editTextUser"
+        android:layout_centerHorizontal="true"
+        app:pb_selectorError="@android:color/holo_red_dark"
+        app:pb_selectorIdle="@drawable/progress_bar_white"
+        app:pb_textIdle="Check another user" />
+
 
 </RelativeLayout>
