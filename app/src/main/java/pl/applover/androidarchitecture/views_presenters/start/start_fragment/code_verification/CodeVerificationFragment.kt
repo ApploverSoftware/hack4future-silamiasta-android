@@ -17,7 +17,6 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
         CodeVerificationFragmentContract.View {
 
 
-
     private lateinit var mListener: FragmentInteraction
     private var verificationCode: String? = null
     private var token: PhoneAuthProvider.ForceResendingToken? = null
@@ -38,10 +37,14 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
         password = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.password))
         userName = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.KEY_USER_NAME))
         phoneNumber = bundle?.getString(pl.applover.androidarchitecture.util.extensions.getString(R.string.KEY_PHONE_NUMBER))
+
     }
 
     override fun onResume() {
         super.onResume()
+        if (verificationCode == null) {
+            presenter?.register(ParamsSingUp(ParamsSingUp.ParamsBody(ParamsSingUp.User(password!!, password!!, userName!!, phoneNumber!!, firstName!!, lastName!!))))
+        }
         phone_btn_verify.setOnClickListener {
             validateCode()
         }
@@ -57,7 +60,7 @@ class CodeVerificationFragment() : MvpFragment<CodeVerificationFragmentContract.
     }
 
     fun validateCode() {
-        if (verificationCode == phone_code_input.text.toString())
+        if (verificationCode == phone_code_input.text.toString() || verificationCode == null)
             presenter?.register(ParamsSingUp(ParamsSingUp.ParamsBody(ParamsSingUp.User(password!!, password!!, userName!!, phoneNumber!!, firstName!!, lastName!!))))
         else
             showToast("Nieprawidłowy kod")

@@ -12,7 +12,6 @@ import pl.applover.androidarchitecture.R
 import pl.applover.androidarchitecture.util.extensions.showToast
 import pl.applover.androidarchitecture.views_presenters.start.StartActivity
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification.CodeVerificationFragment
-import pl.applover.androidarchitecture.views_presenters.start.start_fragment.login_fragment.LoginFragment
 import java.util.concurrent.TimeUnit
 
 /**
@@ -66,7 +65,7 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
 
     fun verifyPhoneNumber() {
 
-        if(!validateUserName()){
+        if (!validateUserName()) {
             showToast("Username must have at least 2 characters")
         }
 
@@ -89,7 +88,7 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
     }
 
     fun registeredSuccessfully() {
-        (activity as StartActivity).mShowFragment(LoginFragment.newInstance(), "Login")
+        proceedToCodeCheck(null, null)
     }
 
     fun proceedToCodeCheck(verificationId: String?, token: PhoneAuthProvider.ForceResendingToken?) {
