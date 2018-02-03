@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:paddingTop="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="20dp">
 
     <ImageView
         android:layout_width="150dp"
@@ -20,7 +20,8 @@
         android:layout_gravity="center"
         android:layout_margin="3dp"
         android:background="@drawable/edit_text_start_shape"
-        android:hint="USERNAME" />
+        android:hint="Username"
+        android:maxLines="1" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -29,7 +30,7 @@
         android:layout_gravity="center"
         android:layout_margin="3dp"
         android:background="@drawable/edit_text_start_shape"
-        android:hint="PASSWORD"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <com.nihaskalam.progressbuttonlibrary.CircularProgressButton
