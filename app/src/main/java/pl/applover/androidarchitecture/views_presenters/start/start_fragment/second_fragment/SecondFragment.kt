@@ -6,9 +6,9 @@ import android.view.View
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import pl.applover.androidarchitecture.R
 import com.stfalcon.mvphelper.MvpFragment
 import kotlinx.android.synthetic.main.fragment_second.*
+import pl.applover.androidarchitecture.R
 import pl.applover.androidarchitecture.util.extensions.showToast
 import pl.applover.androidarchitecture.views_presenters.start.StartActivity
 import pl.applover.androidarchitecture.views_presenters.start.start_fragment.code_verification.CodeVerificationFragment
@@ -65,19 +65,26 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
     }
 
     fun verifyPhoneNumber() {
+
+        if(!validateUserName()){
+            showToast("Username must have at least 2 characters")
+        }
+
         if (!validateName())
-            showToast("Imię i nazwisko muszą mieć minimum 2 litery")
+            showToast("First name and last name must have at least 2 characters")
         else if (!phone_input_number.text.isNullOrEmpty())
             phoneAuthProvider.verifyPhoneNumber(phone_input_number.text.toString(), 60, TimeUnit.SECONDS, activity, mCallbackManager!!)
         else
-            showToast("Numer telefonu jest niepoprawny!")
+            showToast("Telephone number is not correct!")
     }
+
+    fun validateUserName(): Boolean = userName.text.toString().length > 2
 
     fun validatePassword(): Boolean {
         return (first_password.text.toString().isNotEmpty() && first_password.text.toString() == second_password.text.toString())
     }
 
-    fun validateName(): Boolean{
+    fun validateName(): Boolean {
         return (first_name.text.toString().length > 2 && last_name.text.toString().length > 2)
     }
 
@@ -92,7 +99,11 @@ class SecondFragment : MvpFragment<SecondFragmentContract.Presenter, SecondFragm
         bundle.putString(getString(R.string.second_name), last_name.text.toString())
         bundle.putString(getString(R.string.password), first_password.text.toString())
         bundle.putParcelable(getString(R.string.verificationToken), token)
-        (activity as StartActivity).mShowFragment(CodeVerificationFragment.newInstance(bundle), "Verification")
+        bundle.putString(getString(R.string.KEY_PHONE_NUMBER), phone_input_number.text.toString())
+        bundle.putString(getString(R.string.KEY_USER_NAME), userName.text.toString())
+        val fragment = CodeVerificationFragment.newInstance()
+        fragment.arguments = bundle
+        (activity as StartActivity).mShowFragment(fragment, "Verification")
     }
 
 

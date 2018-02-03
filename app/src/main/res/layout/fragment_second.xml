@@ -5,10 +5,19 @@
     android:background="@color/deep_lilac">
 
     <EditText
+        android:id="@+id/userName"
+        style="@style/LoginEditText"
+        android:layout_marginTop="38dp"
+        android:hint="Username"
+        android:imeOptions="actionDone"
+        android:theme="@style/LoginEditText" />
+
+
+    <EditText
         android:id="@+id/first_name"
         style="@style/LoginEditText"
         android:layout_marginTop="38dp"
-        android:hint="Imię"
+        android:hint="Name"
         android:imeOptions="actionDone"
         android:theme="@style/LoginEditText" />
 
@@ -16,7 +25,7 @@
         android:id="@+id/last_name"
         style="@style/LoginEditText"
         android:layout_marginTop="8dp"
-        android:hint="Nazwisko"
+        android:hint="Last Name"
         android:imeOptions="actionDone"
         android:theme="@style/LoginEditText" />
 
@@ -24,7 +33,7 @@
         android:id="@+id/first_password"
         style="@style/LoginEditText"
         android:layout_marginTop="8dp"
-        android:hint="Hasło"
+        android:hint="Password"
         android:imeOptions="actionDone"
         android:theme="@style/LoginEditText" />
 
@@ -32,7 +41,7 @@
         android:id="@+id/second_password"
         style="@style/LoginEditText"
         android:layout_marginTop="8dp"
-        android:hint="Powtórz hasło"
+        android:hint="Reapeat password"
         android:imeOptions="actionDone"
         android:theme="@style/LoginEditText" />
 
@@ -54,7 +63,7 @@
         android:id="@+id/phone_input_number"
         style="@style/LoginEditText"
         android:layout_marginTop="16dp"
-        android:hint="Numer telefonu"
+        android:hint="Telephone number"
         android:imeOptions="actionDone"
         android:inputType="phone"
         android:theme="@style/LoginEditText" />
@@ -65,6 +74,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Wyślij kod SMS" />
+        android:text="Send verification SMS" />
 
 </LinearLayout>

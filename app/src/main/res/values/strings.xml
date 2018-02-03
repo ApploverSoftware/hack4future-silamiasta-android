@@ -6,4 +6,6 @@
     <string name="first_name">Imie</string>
     <string name="second_name">Nazwisko</string>
     <string name="password">Haslo</string>
+    <string name="KEY_PHONE_NUMBER">KEY_PHONE_NUMBER</string>
+    <string name="KEY_USER_NAME">KEY_USER_NAME</string>
 </resources>
