@@ -43,7 +43,7 @@ class InteractorGetUser(private val retrofit: Retrofit = App.getMainRetrofit()) 
         fun getSingle(retrofit: Retrofit, paramsGetUser: ParamsGetUser): Single<Response<ResponseCheckUser>> { //todo create Response
             val api = retrofit.create<ApiEndpointsSilaMiasta>(ApiEndpointsSilaMiasta::class.java)
 
-            return api.getUser(paramsGetUser.userId)
+            return api.getUser(paramsGetUser.userName)
                     .observeOn(MyScheduler.getMainThreadScheduler())
                     .subscribeOn(MyScheduler.getScheduler())
         }
